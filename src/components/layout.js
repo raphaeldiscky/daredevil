@@ -6,11 +6,17 @@ import { useStaticQuery, graphql } from "gatsby"
 import { createGlobalStyle, ThemeProvider } from "styled-components"
 import { normalize } from "styled-normalize"
 
+// component
+import Header from "./header"
+
+// context
+import { useGlobalStateContext } from "../context/globalContext"
+
 const GlobalStyle = createGlobalStyle`
   ${normalize}
   * {
     text-decoration: none;
-    cursor:none;
+     /* cursor:none; */
   }
   html {
     box-sizing: border-box;
@@ -39,16 +45,21 @@ const Layout = ({ children }) => {
   const darkTheme = {
     background: "#000",
     text: "#fff",
+    red: "#ea291e",
   }
 
   const lightTheme = {
     background: "#fff",
-    text: "#fff",
+    text: "#000",
+    red: "#ea291e",
   }
 
+  const { currentTheme } = useGlobalStateContext()
+
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
       <GlobalStyle />
+      <Header />
       <main>{children}</main>
     </ThemeProvider>
   )
