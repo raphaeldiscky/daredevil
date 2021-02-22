@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { Cursor } from "../styles/globalStyles"
 
+// context
+import { useGlobalStateContext } from "../context/globalContext"
+
 const CustomCursor = () => {
+  const { cursorType } = useGlobalStateContext()
   const [mousePosition, setMousePosition] = useState({
     x: 400,
     y: 400,
@@ -22,6 +26,7 @@ const CustomCursor = () => {
   return (
     <>
       <Cursor
+        className={`${!!cursorType ? "hovered" : ""} ${cursorType}`}
         style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}
       />
     </>
