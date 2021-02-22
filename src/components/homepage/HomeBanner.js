@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 
 import {
   Banner,
@@ -8,7 +8,30 @@ import {
   Headline,
 } from "../../styles/homeStyles"
 
+// custom hook
+import useWindowSize from "../../hooks/useWindowSize"
+
 const HomeBanner = () => {
+  let canvas = useRef(null)
+  const size = useWindowSize()
+
+  useEffect(() => {
+    let renderingElement = canvas.current
+    let drawingElement = renderingElement.cloneNode()
+
+    let drawingContext = drawingElement.getContext("2d")
+    let renderingContext = renderingElement.getContext("2d")
+
+    let lastX
+    let lastY
+
+    let moving = false
+
+    renderingContext.globalCompositeOperation = "source-over"
+    renderingContext.fillStyle = "#000"
+    renderingContext.fillRect(0, 0, size.width, size.height)
+  }, [])
+
   return (
     <Banner>
       <Video>
@@ -20,7 +43,7 @@ const HomeBanner = () => {
           src={require("../../assets/videos/video.mp4")}
         />
       </Video>
-      <Canvas />
+      <Canvas height={size.height} width={size.width} ref={canvas} />
       <BannerTitle>
         <Headline>DEV</Headline>
         <Headline>NOOB</Headline>
