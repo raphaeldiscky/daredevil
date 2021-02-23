@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 // components
 import HomeBanner from "../components/homepage/HomeBanner"
 import HomeContent from "../components/homepage/HomeContent"
+import HomeFeatured from "../components/homepage/HomeFeatured"
 
 // context
 import {
@@ -25,6 +26,7 @@ const IndexPage = props => {
     <Layout>
       <HomeBanner onCursor={onCursor} />
       <HomeContent />
+      <HomeFeatured />
     </Layout>
   )
 }
