@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { Link } from "gatsby"
 
 // styled components
@@ -11,10 +11,21 @@ import {
   useGlobalDispatchContext,
 } from "../context/globalContext"
 
-const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
+// custom hook
+import useElementPosition from "../hooks/useElementPosition"
+
+const Header = ({
+  onCursor,
+  setToggleMenu,
+  toggleMenu,
+  setHamburgerPosition,
+  hamburgerPosition,
+}) => {
   const dispatch = useGlobalDispatchContext()
-  // check current state
-  const { currentTheme } = useGlobalStateContext()
+  const { currentTheme } = useGlobalStateContext() // check current state
+
+  const hamburger = useRef(null)
+  const position = useElementPosition(hamburger)
 
   const toggleTheme = () => {
     if (currentTheme === "dark") {
@@ -24,9 +35,13 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
     }
   }
 
+  const menuHover = () => {
+    onCursor("locked")
+    setHamburgerPosition({ x: position.x, y: position.y + 72 }) // 72 from framer motion in HeaderNav
+  }
+
   useEffect(() => {
-    // theme doesnt change, except when state is change
-    window.localStorage.setItem("theme", currentTheme)
+    window.localStorage.setItem("theme", currentTheme) // theme doesnt change, except when state is change
   }, [currentTheme])
 
   return (
@@ -50,7 +65,12 @@ const Header = ({ onCursor, setToggleMenu, toggleMenu }) => {
             ></span>
             <Link to="/">EL</Link>
           </Logo>
-          <Menu onClick={() => setToggleMenu(!toggleMenu)}>
+          <Menu
+            ref={hamburger}
+            onClick={() => setToggleMenu(!toggleMenu)}
+            onMouseEnter={menuHover}
+            onMouseLeave={onCursor}
+          >
             <button>
               <span></span>
               <span></span>
