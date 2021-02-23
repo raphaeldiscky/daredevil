@@ -105,6 +105,7 @@ const HomeAbout = ({ onCursor }) => {
 
 const Accordian = ({ item, expanded, setExpanded, onCursor }) => {
   const isOpen = item.id === expanded
+  const [hovered, setHovered] = useState(false)
 
   return (
     <>
@@ -112,14 +113,16 @@ const Accordian = ({ item, expanded, setExpanded, onCursor }) => {
         onClick={() => setExpanded(isOpen ? false : item.id)}
         onMouseEnter={() => onCursor("hovered")}
         onMouseLeave={onCursor}
+        onHoverStart={() => setHovered(!hovered)}
+        onHoverEnd={() => setHovered(!hovered)}
       >
         <AccordianIcon>
           <motion.span
-            animate={{ rotate: isOpen ? 0 : 45, x: 3 }}
+            animate={{ rotate: isOpen || hovered ? 0 : 45, x: 3 }}
             transition={{ duration: 0.2, ease: [0.6, 0.05, -0.01, 0.9] }}
           />
           <motion.span
-            animate={{ rotate: isOpen ? 0 : -45, x: -3 }}
+            animate={{ rotate: isOpen || hovered ? 0 : -45, x: -3 }}
             transition={{ duration: 0.2, ease: [0.6, 0.05, -0.01, 0.9] }}
           />
         </AccordianIcon>

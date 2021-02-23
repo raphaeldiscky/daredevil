@@ -174,7 +174,7 @@ export const About = styled.div`
 export const Services = styled.div``
 
 // accordian
-export const AccordianHeader = styled.div`
+export const AccordianHeader = styled(motion.div)`
   width: 100%;
   color: ${props => props.theme.red};
   height: 32px;
