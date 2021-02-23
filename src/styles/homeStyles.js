@@ -53,7 +53,7 @@ export const Content = styled.h3`
   color: ${props => props.theme.text};
 `
 // home featured
-export const HomeFeaturedSection = styled.div`
+export const HomeFeaturedSection = styled(motion.div)`
   margin-bottom: 200px;
   position: relative;
   a {
@@ -62,7 +62,7 @@ export const HomeFeaturedSection = styled.div`
     display: block;
   }
 `
-export const FeaturedContent = styled.div`
+export const FeaturedContent = styled(motion.div)`
   height: 480px;
   width: 100%;
   padding: 56px 124px;
