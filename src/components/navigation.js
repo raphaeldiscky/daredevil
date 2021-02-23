@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
+import { motion } from "framer-motion"
 
 // styled components
 import { Container, Flex } from "../styles/globalStyles"
@@ -9,6 +10,7 @@ import {
   CloseNav,
   NavList,
   NavFooter,
+  NavVideos,
 } from "../styles/navStyles"
 
 const navRoutes = [
@@ -45,6 +47,12 @@ const navRoutes = [
 ]
 
 const Navigation = () => {
+  const [revealVideo, setRevealVideo] = useState({
+    show: false,
+    video: "featured-video.mp4",
+    key: "0",
+  })
+
   return (
     <Nav>
       <Container>
@@ -62,9 +70,35 @@ const Navigation = () => {
         <NavList>
           <ul>
             {navRoutes.map(route => (
-              <li key={route.id}>
+              <motion.li
+                key={route.id}
+                onHoverStart={() =>
+                  setRevealVideo({
+                    show: true,
+                    video: route.video,
+                    key: route.id,
+                  })
+                }
+                onHoverEnd={() =>
+                  setRevealVideo({
+                    show: false,
+                    video: route.video,
+                    key: route.id,
+                  })
+                }
+              >
                 <Link to={`/projects/${route.path}`}>
-                  <div className="link">
+                  <motion.div
+                    initial={{ x: -108 }}
+                    whileHover={{
+                      x: -40,
+                      transition: {
+                        duration: 0.4,
+                        ease: [0.6, 0.05, -0.01, 0.9],
+                      },
+                    }}
+                    className="link"
+                  >
                     <span className="arrow">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -78,13 +112,26 @@ const Navigation = () => {
                       </svg>
                     </span>
                     {route.title}
-                  </div>
+                  </motion.div>
                 </Link>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </NavList>
         <NavFooter></NavFooter>
+        <NavVideos>
+          <motion.div
+            animate={{ width: revealVideo.show ? 0 : "100%" }}
+            className="reveal"
+          ></motion.div>
+          <div className="video">
+            <video
+              src={require(`../assets/videos/${revealVideo.video}`)}
+              loop
+              autoPlay
+            />
+          </div>
+        </NavVideos>
       </Container>
     </Nav>
   )
