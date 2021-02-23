@@ -1,5 +1,6 @@
-import React, { useState } from "react"
-import { motion } from "framer-motion"
+import React, { useEffect, useState } from "react"
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 
 import { Container, Flex } from "../../styles/globalStyles"
 import {
@@ -68,9 +69,37 @@ const accordianData = [
 ]
 
 const HomeAbout = ({ onCursor }) => {
+  const animation = useAnimation()
+  const [aboutRef, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: "-300px",
+  })
+
+  useEffect(() => {
+    if (inView) {
+      animation.start("visible")
+    }
+  }, [animation, inView])
+
   const [expanded, setExpanded] = useState(0) // 0 is item id
+
   return (
-    <HomeAboutSection>
+    <HomeAboutSection
+      ref={aboutRef}
+      animate={animation}
+      initial="hidden"
+      variants={{
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.6, ease: [0.6, 0.05, -0.01, 0.9] },
+        },
+        hidden: {
+          opacity: 0,
+          y: 72,
+        },
+      }}
+    >
       <Container>
         <Flex alignTop>
           <About>
