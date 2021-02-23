@@ -197,7 +197,7 @@ export const AccordianIcon = styled.div`
   }
 `
 
-export const AccordianContent = styled.div`
+export const AccordianContent = styled(motion.div)`
   overflow: hidden;
   padding-left: 40px;
   span {

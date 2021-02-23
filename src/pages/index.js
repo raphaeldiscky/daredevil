@@ -28,7 +28,7 @@ const IndexPage = props => {
       <HomeBanner onCursor={onCursor} />
       <HomeContent />
       <HomeFeatured onCursor={onCursor} />
-      <HomeAbout />
+      <HomeAbout onCursor={onCursor} />
     </Layout>
   )
 }

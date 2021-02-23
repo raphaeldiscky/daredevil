@@ -1,4 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
+import { motion } from "framer-motion"
+
 import { Container, Flex } from "../../styles/globalStyles"
 import {
   HomeAboutSection,
@@ -63,7 +65,8 @@ const accordianData = [
   },
 ]
 
-const HomeAbout = () => {
+const HomeAbout = ({ onCursor }) => {
+  const [expanded, setExpanded] = useState(0) // 0 is item id
   return (
     <HomeAboutSection>
       <Container>
@@ -85,7 +88,13 @@ const HomeAbout = () => {
           <Services>
             <h3>Services</h3>
             {accordianData.map((item, index) => (
-              <Accordian key={index} item={item} />
+              <Accordian
+                key={index}
+                item={item}
+                expanded={expanded}
+                setExpanded={setExpanded}
+                onCursor={onCursor}
+              />
             ))}
           </Services>
         </Flex>
@@ -94,17 +103,32 @@ const HomeAbout = () => {
   )
 }
 
-const Accordian = ({ item }) => {
+const Accordian = ({ item, expanded, setExpanded, onCursor }) => {
+  const isOpen = item.id === expanded
+
   return (
     <>
-      <AccordianHeader>
+      <AccordianHeader
+        onClick={() => setExpanded(isOpen ? false : item.id)}
+        onMouseEnter={() => onCursor("hovered")}
+        onMouseLeave={onCursor}
+      >
         <AccordianIcon>
-          <span></span>
-          <span></span>
+          <motion.span
+            animate={{ rotate: isOpen ? 0 : 45, x: 3 }}
+            transition={{ duration: 0.2, ease: [0.6, 0.05, -0.01, 0.9] }}
+          />
+          <motion.span
+            animate={{ rotate: isOpen ? 0 : -45, x: -3 }}
+            transition={{ duration: 0.2, ease: [0.6, 0.05, -0.01, 0.9] }}
+          />
         </AccordianIcon>
         {item.title}
       </AccordianHeader>
-      <AccordianContent>
+      <AccordianContent
+        key="content"
+        animate={{ height: isOpen ? "100%" : "0" }}
+      >
         {item.results.map((result, index) => (
           <span key={index}>{result}</span>
         ))}
