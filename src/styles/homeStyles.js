@@ -39,3 +39,16 @@ export const Headline = styled(motion.span)`
   font-weight: 900;
   line-height: 0.76;
 `
+
+// content section
+export const HomeContentSection = styled(motion.div)`
+  margin-bottom: 200px;
+`
+
+export const Content = styled.h3`
+  width: 53%;
+  font-size: 2.3rem;
+  font-weight: 400;
+  margin-left: 124px;
+  color: ${props => props.theme.text};
+`

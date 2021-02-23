@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 
 // components
 import HomeBanner from "../components/homepage/HomeBanner"
+import HomeContent from "../components/homepage/HomeContent"
 
 // context
 import {
@@ -23,6 +24,7 @@ const IndexPage = props => {
   return (
     <Layout>
       <HomeBanner onCursor={onCursor} />
+      <HomeContent />
     </Layout>
   )
 }
