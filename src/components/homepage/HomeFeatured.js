@@ -9,12 +9,15 @@ import {
   FeaturedVideo,
 } from "../../styles/homeStyles"
 
-const HomeFeatured = () => {
+const HomeFeatured = ({ onCursor }) => {
   return (
     <HomeFeaturedSection>
       <Container>
         <Link>
-          <FeaturedContent>
+          <FeaturedContent
+            onMouseEnter={() => onCursor("hovered")}
+            onMouseLeave={onCursor}
+          >
             <Flex spaceBetween>
               <h3>Featured Project</h3>
               <div className="meta">
