@@ -7,7 +7,7 @@ export const FooterNav = styled(motion.div)`
 `
 export const FooterContent = styled.div`
   color: ${props => props.theme.red};
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 0.5rem;
   flex: 1;

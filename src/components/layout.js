@@ -87,20 +87,16 @@ const Layout = ({ children }) => {
         onCursor={onCursor}
         toggleMenu={toggleMenu}
         setToggleMenu={setToggleMenu}
-        hamburgerPosition={hamburgerPosition}
         setHamburgerPosition={setHamburgerPosition}
       />
       <Navigation
         toggleMenu={toggleMenu}
         setToggleMenu={setToggleMenu}
         onCursor={onCursor}
-      />
-      <main>{children}</main>
-      <Footer
-        onCursor={onCursor}
-        hamburgerPosition={hamburgerPosition}
         setHamburgerPosition={setHamburgerPosition}
       />
+      <main>{children}</main>
+      <Footer onCursor={onCursor} setHamburgerPosition={setHamburgerPosition} />
     </ThemeProvider>
   )
 }
