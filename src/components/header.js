@@ -43,7 +43,7 @@ const Header = ({
     window.localStorage.setItem("theme", currentTheme) // theme doesnt change, except when state is change
     toggleMenu
       ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "unset")
+      : (document.body.style.overflowY = "unset")
   }, [currentTheme, toggleMenu])
 
   return (
