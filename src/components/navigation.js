@@ -12,6 +12,10 @@ import {
   NavFooter,
   NavVideos,
 } from "../styles/navStyles"
+import { FooterContent, FooterSocial } from "../styles/footerStyles"
+
+// icons
+import { Github, Linkedin, Twitter } from "../assets/svg/social-icons"
 
 const navRoutes = [
   {
@@ -132,7 +136,42 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
                   ))}
                 </ul>
               </NavList>
-              <NavFooter></NavFooter>
+              <NavFooter>
+                <Flex>
+                  <FooterContent>
+                    <p>zundria.putra@gmail.com</p>
+                  </FooterContent>
+                  <FooterContent wider>
+                    <p>+62-878-3991-2020</p>
+                  </FooterContent>
+                  <FooterSocial>
+                    <a
+                      onMouseEnter={() => onCursor("pointer")}
+                      onMouseLeave={onCursor}
+                      href="https://github.com/raphaeldiscky"
+                      target="_blank"
+                    >
+                      <Github />
+                    </a>
+                    <a
+                      onMouseEnter={() => onCursor("pointer")}
+                      onMouseLeave={onCursor}
+                      href="https://linkedin.com/in/raphaeldiscky"
+                      target="_blank"
+                    >
+                      <Linkedin />
+                    </a>
+                    <a
+                      onMouseEnter={() => onCursor("pointer")}
+                      onMouseLeave={onCursor}
+                      href="https://twitter.com/rdisckydev"
+                      target="_blank"
+                    >
+                      <Twitter />
+                    </a>
+                  </FooterSocial>
+                </Flex>
+              </NavFooter>
               <NavVideos>
                 <motion.div
                   animate={{ width: revealVideo.show ? 0 : "100%" }}
