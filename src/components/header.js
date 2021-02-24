@@ -19,7 +19,6 @@ const Header = ({
   setToggleMenu,
   toggleMenu,
   setHamburgerPosition,
-  hamburgerPosition,
 }) => {
   const dispatch = useGlobalDispatchContext()
   const { currentTheme } = useGlobalStateContext() // check current state
@@ -42,7 +41,10 @@ const Header = ({
 
   useEffect(() => {
     window.localStorage.setItem("theme", currentTheme) // theme doesnt change, except when state is change
-  }, [currentTheme])
+    toggleMenu
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "unset")
+  }, [currentTheme, toggleMenu])
 
   return (
     <HeaderNav
