@@ -40,8 +40,8 @@ const HomeContent = () => {
       <Container>
         <Content>
           <p>HI, IM RAPHAEL DISCKY</p>
-          Fullstack Web Developer and UI/UX enthusiast, creating beautiful and
-          functional web application
+          Fullstack Developer and UI/UX enthusiast, creating beautiful and
+          functional websites
         </Content>
       </Container>
     </HomeContentSection>
