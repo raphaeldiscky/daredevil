@@ -96,7 +96,11 @@ const Layout = ({ children }) => {
         onCursor={onCursor}
       />
       <main>{children}</main>
-      <Footer onCursor={onCursor} />
+      <Footer
+        onCursor={onCursor}
+        hamburgerPosition={hamburgerPosition}
+        setHamburgerPosition={setHamburgerPosition}
+      />
     </ThemeProvider>
   )
 }
