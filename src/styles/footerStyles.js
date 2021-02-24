@@ -2,7 +2,7 @@ import styled, { css } from "styled-components"
 import { motion } from "framer-motion"
 
 export const FooterNav = styled(motion.div)`
-  height: 300px;
+  height: 150px;
   margin-top: 296px;
 `
 export const FooterContent = styled.div`
