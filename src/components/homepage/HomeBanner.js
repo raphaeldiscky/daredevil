@@ -107,7 +107,7 @@ const HomeBanner = ({ onCursor }) => {
       />
       <BannerTitle variants={parent} initial="initial" animate="animate">
         <Headline variants={child}>DEV</Headline>
-        <Headline variants={child}>NOOB</Headline>
+        <Headline variants={child}>DESIGN</Headline>
       </BannerTitle>
     </Banner>
   )

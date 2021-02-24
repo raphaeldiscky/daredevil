@@ -35,7 +35,7 @@ export const BannerTitle = styled(motion.h1)`
 
 export const Headline = styled(motion.span)`
   display: block;
-  font-size: 23rem;
+  font-size: 18rem;
   font-weight: 900;
   line-height: 0.76;
 `
@@ -51,6 +51,10 @@ export const Content = styled.h3`
   font-weight: 400;
   margin-left: 124px;
   color: ${props => props.theme.text};
+  p {
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+  }
 `
 // home featured
 export const HomeFeaturedSection = styled(motion.div)`

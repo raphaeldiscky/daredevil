@@ -39,9 +39,9 @@ const HomeContent = () => {
     >
       <Container>
         <Content>
-          Great stories don’t just happen— <br /> they need to be uncovered. And
-          we dig deep to discover the great stories that lie just below the
-          surface. Dirt under our fingernails and all.
+          <p>HI, IM RAPHAEL DISCKY</p>
+          Fullstack Web Developer and UI/UX enthusiast, creating beautiful and
+          functional web application
         </Content>
       </Container>
     </HomeContentSection>
