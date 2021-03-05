@@ -14,8 +14,8 @@ import {
 } from "../context/globalContext"
 
 const IndexPage = props => {
-  const { cursorStyles } = useGlobalStateContext()
   const dispatch = useGlobalDispatchContext()
+  const { cursorStyles } = useGlobalStateContext()
 
   // show the cursor on canvas
   const onCursor = cursorType => {

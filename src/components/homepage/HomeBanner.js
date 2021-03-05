@@ -16,7 +16,7 @@ import useWindowSize from "../../hooks/useWindowSize"
 
 const HomeBanner = ({ onCursor }) => {
   let canvas = useRef(null)
-  const size = useWindowSize()
+  const size = useWindowSize
   const { currentTheme } = useGlobalStateContext()
 
   useEffect(() => {
