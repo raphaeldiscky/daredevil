@@ -16,7 +16,7 @@ import useWindowSize from "../../hooks/useWindowSize"
 
 const HomeBanner = ({ onCursor }) => {
   let canvas = useRef(null)
-  const size = useWindowSize
+  const size = useWindowSize()
   const { currentTheme } = useGlobalStateContext()
 
   useEffect(() => {
@@ -98,13 +98,15 @@ const HomeBanner = ({ onCursor }) => {
           src={require("../../assets/videos/video.mp4")}
         />
       </Video>
-      <Canvas
-        height={size.height}
-        width={size.width}
-        ref={canvas}
-        onMouseEnter={() => onCursor("hovered")}
-        onMouseLeave={onCursor}
-      />
+      {typeof window !== "undefined" && (
+        <Canvas
+          height={size.height}
+          width={size.width}
+          ref={canvas}
+          onMouseEnter={() => onCursor("hovered")}
+          onMouseLeave={onCursor}
+        />
+      )}
       <BannerTitle variants={parent} initial="initial" animate="animate">
         <Headline variants={child}>DEV</Headline>
         <Headline variants={child}>DESIGN</Headline>
