@@ -83,8 +83,13 @@ export const Cursor = styled.div`
     background: transparent !important;
     width: 56px;
     height: 56px;
-    border: 4px solid ${props => props.theme.red};
+    border: 4px solid ${props => props.theme.red} !important;
     top: ${props => props.theme.top} !important;
     left: ${props => props.theme.left} !important;
+  }
+
+  &.nav-open,
+  &.locked {
+    border: 4px solid ${props => props.theme.text} !important;
   }
 `

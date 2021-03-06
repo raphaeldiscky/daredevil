@@ -81,7 +81,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={currentTheme === "dark" ? darkTheme : lightTheme}>
-      <GlobalStyle />=
+      <GlobalStyle />
       <Cursor toggleMenu={toggleMenu} />
       <Header
         onCursor={onCursor}

@@ -34,7 +34,7 @@ export const GlobalProvider = ({ children }) => {
           : window.localStorage.getItem("theme")
         : "dark",
     cursorType: false,
-    cursorStyles: ["pointer", "hovered"],
+    cursorStyles: ["pointer", "hovered", "locked"],
   })
   return (
     <GlobalDispatchContext.Provider value={dispatch}>
