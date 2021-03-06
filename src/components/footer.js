@@ -72,6 +72,7 @@ const Footer = ({ onCursor, setHamburgerPosition }) => {
               ref={githubRef}
               href="https://github.com/raphaeldiscky"
               target="_blank"
+              rel="noreferrer"
             >
               <Github />
             </a>
@@ -81,6 +82,7 @@ const Footer = ({ onCursor, setHamburgerPosition }) => {
               ref={linkedinRef}
               href="https://linkedin.com/in/raphaeldiscky"
               target="_blank"
+              rel="noreferrer"
             >
               <Linkedin />
             </a>
@@ -90,6 +92,7 @@ const Footer = ({ onCursor, setHamburgerPosition }) => {
               ref={twitterRef}
               href="https://twitter.com/rdisckydev"
               target="_blank"
+              rel="noreferrer"
             >
               <Twitter />
             </a>

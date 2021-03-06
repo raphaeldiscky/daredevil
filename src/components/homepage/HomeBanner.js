@@ -64,6 +64,7 @@ const HomeBanner = ({ onCursor }) => {
         renderingContext.drawImage(drawingElement, 0, 0)
       }
     })
+    // eslint-disable-next-line
   }, [currentTheme])
 
   const parent = {

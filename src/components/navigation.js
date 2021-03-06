@@ -150,6 +150,7 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
                       onMouseLeave={onCursor}
                       href="https://github.com/raphaeldiscky"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <Github />
                     </a>
@@ -158,6 +159,7 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
                       onMouseLeave={onCursor}
                       href="https://linkedin.com/in/raphaeldiscky"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <Linkedin />
                     </a>
@@ -166,6 +168,7 @@ const Navigation = ({ toggleMenu, setToggleMenu, onCursor }) => {
                       onMouseLeave={onCursor}
                       href="https://twitter.com/rdisckydev"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <Twitter />
                     </a>

@@ -88,6 +88,7 @@ const Layout = ({ children }) => {
         toggleMenu={toggleMenu}
         setToggleMenu={setToggleMenu}
         setHamburgerPosition={setHamburgerPosition}
+        siteTitle={data.site.siteMetadata.title}
       />
       <Navigation
         toggleMenu={toggleMenu}

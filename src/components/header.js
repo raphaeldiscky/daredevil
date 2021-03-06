@@ -61,6 +61,7 @@ const Header = ({
           >
             <Link to="/">RAPH</Link>
             <span
+              aria-hidden="true"
               onClick={toggleTheme}
               onMouseEnter={() => onCursor("pointer")}
               onMouseLeave={onCursor}

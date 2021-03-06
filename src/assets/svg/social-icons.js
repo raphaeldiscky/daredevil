@@ -3,7 +3,7 @@ import React from "react"
 export const Github = () => (
   <svg
     id="Bold"
-    enable-background="new 0 0 24 24"
+    enableBackground="new 0 0 24 24"
     height="512"
     viewBox="0 0 24 24"
     width="512"
@@ -16,7 +16,7 @@ export const Github = () => (
 export const Linkedin = () => (
   <svg
     id="Bold"
-    enable-background="new 0 0 24 24"
+    enableBackground="new 0 0 24 24"
     height="512"
     viewBox="0 0 24 24"
     width="512"
@@ -32,7 +32,7 @@ export const Linkedin = () => (
 export const Twitter = () => (
   <svg
     id="Bold"
-    enable-background="new 0 0 24 24"
+    enableBackground="new 0 0 24 24"
     height="512"
     viewBox="0 0 24 24"
     width="512"
@@ -44,8 +44,8 @@ export const Twitter = () => (
 )
 
 //Arrow Icon for ref
-{
-  /* <svg
+
+/* <svg
 xmlns="http://www.w3.org/2000/svg"
 viewBox="0 0 101 57"
 >
@@ -55,4 +55,3 @@ viewBox="0 0 101 57"
   fillRule="evenodd"
 ></path>
 </svg> */
-}
