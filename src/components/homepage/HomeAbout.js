@@ -166,6 +166,7 @@ const Accordian = ({ item, expanded, setExpanded, onCursor }) => {
       <AccordianContent
         key="content"
         animate={{ height: isOpen ? "100%" : "0" }}
+        transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
       >
         {item.results.map((result, index) => (
           <span key={index}>{result}</span>
